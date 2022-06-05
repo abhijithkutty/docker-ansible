@@ -1,14 +1,9 @@
-FROM ubuntu:latest
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
-    apt-get install -y gcc python2 libkrb5-dev && \
-    apt-get install python3-pip -y && \
-    pip3 install --upgrade pip && \
-    pip3 install --upgrade virtualenv && \
-    pip3 install pywinrm[kerberos] && \
-    apt install krb5-user -y && \
-    pip3 install pywinrm && \
-    pip3 install ansible && \
-    apt install -y openssh-client && \
-    apt install -y openssh-server && \
-    apt install -y sshpass
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install python2 ansible openssh-client vim sshpass iputils-ping -y
+RUN mkdir /etc/ansible
+RUN echo "host ansible_host=remote-host" > /etc/ansible/hosts
+RUN echo "[defaults]\n host_key_checking = False\n inventory = /etc/ansible/hosts" > /etc/ansible/ansible.cfg
+COPY ./client/id_rsa.pub /root/.ssh/
+COPY ./client/id_rsa /root/.ssh/
+CMD ["/bin/bash"]
