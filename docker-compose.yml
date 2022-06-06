@@ -12,6 +12,7 @@ services:
         remote_host:
                container_name: remote-host
                image: remote-host-ssh
+               tty: true
                build:
                     context: ./client
                networks:
