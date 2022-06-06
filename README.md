@@ -29,7 +29,7 @@
    
    ![image](https://user-images.githubusercontent.com/52773558/172063778-5f900e4f-072a-4b32-892d-dac48d696cae.png)
    
-**6) If ping is failing, conenct to managed host and restart ssh service.**
+**6) If ping is failing, connect to managed host and restart ssh service.**
     
     >docker exec -it remote-host bash
     >service ssh restart
