@@ -6,9 +6,8 @@
 
 **2) **Run below docker-compose commands to build and run the Ansible master and client container.****
 
-   >docker-compose build
-
-   >docker-compose up -d
+    docker-compose build
+    docker-compose up -d
    
    ![image](https://user-images.githubusercontent.com/52773558/172063612-4f72350f-bc97-4887-a00c-d01df4486088.png)
 
@@ -31,5 +30,5 @@
    
 **6) If ping is failing, connect to managed host and restart ssh service.**
     
-    >docker exec -it remote-host bash
-    >service ssh restart
+    docker exec -it remote-host bash
+    service ssh restart
